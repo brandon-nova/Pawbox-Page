@@ -160,7 +160,7 @@ if (form) {
     errorEl.textContent = "";
     form.reset();
     closeModal();
-    alert("Thanks for joining the Pawbox pack! We'll be in touch soon.");
+    alert("Thanks for joining the PawParcel pack! We'll be in touch soon.");
   });
 }
 
