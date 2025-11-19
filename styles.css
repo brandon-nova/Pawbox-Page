@@ -752,6 +752,12 @@ ul {
   font-size: 1.9rem;
 }
 
+.modal-form iframe {
+  min-height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .signup-form {
   display: grid;
   gap: 16px;

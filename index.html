@@ -324,31 +324,14 @@
         <div class="modal-form">
           <h2 id="modal-heading">Join the PawParcel pack</h2>
           <p>Be the first to hear about launch updates, early offers, and special edition boxes.</p>
-          <form class="signup-form" novalidate>
-            <fieldset>
-              <legend>Tell us about you</legend>
-              <label>
-                <input type="checkbox" name="audience" value="parent" />
-                I&#39;m a dog parent
-              </label>
-              <label>
-                <input type="checkbox" name="audience" value="vet" />
-                I&#39;m a veterinary professional
-              </label>
-            </fieldset>
-            <label for="dog-name">Dog&#39;s name (optional)</label>
-            <input type="text" id="dog-name" name="dog-name" placeholder="Milo" />
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-            <p class="form-error" role="alert"></p>
-            <button type="submit" class="btn btn-primary">Join the pack</button>
-          </form>
+          <iframe data-tally-src="https://tally.so/embed/2EEoXD?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="280" frameborder="0" marginheight="0" marginwidth="0" title="PawParcel"></iframe>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
   <script src="main.js"></script>
 </body>
 </html>

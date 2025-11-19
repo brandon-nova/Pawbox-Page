@@ -3,7 +3,7 @@ const navMenu = document.querySelector(".nav-menu");
 const modal = document.getElementById("signup-modal");
 const modalCloseButtons = modal ? modal.querySelectorAll("[data-modal-close]") : [];
 const modalTriggers = document.querySelectorAll("[data-modal-trigger]");
-const form = modal ? modal.querySelector(".signup-form") : null;
+// Form is now handled by Tally embed
 let modalOpenedOnce = false;
 let modalFocusHandler = null;
 
@@ -137,30 +137,16 @@ if (modal) {
   });
 }
 
-if (form) {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const emailInput = form.querySelector("input[type='email']");
-    const errorEl = form.querySelector(".form-error");
-    const emailValue = emailInput.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailValue) {
-      errorEl.textContent = "Please enter your email address.";
-      emailInput.focus();
-      return;
+// Form submission is now handled by Tally embed
+// Listen for Tally form submission to close modal
+if (modal) {
+  window.addEventListener('message', (event) => {
+    // Tally sends a message when form is submitted
+    if (event.data && event.data.type === 'tally:form-submitted') {
+      setTimeout(() => {
+        closeModal();
+      }, 1000); // Give time for success message to show
     }
-
-    if (!emailPattern.test(emailValue)) {
-      errorEl.textContent = "Please enter a valid email address.";
-      emailInput.focus();
-      return;
-    }
-
-    errorEl.textContent = "";
-    form.reset();
-    closeModal();
-    alert("Thanks for joining the PawParcel pack! We'll be in touch soon.");
   });
 }
 
