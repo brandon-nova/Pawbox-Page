@@ -79,7 +79,16 @@ function closeModal() {
 function smoothScrollTo(hash) {
   const target = document.querySelector(hash);
   if (!target) return;
-  target.scrollIntoView({ behavior: "smooth" });
+
+  const announcementHeight =
+    document.querySelector(".announcement-bar")?.offsetHeight || 0;
+  const offset = announcementHeight;
+  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: Math.max(targetPosition, 0),
+    behavior: "smooth"
+  });
 }
 
 if (navToggle && navMenu) {

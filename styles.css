@@ -232,6 +232,12 @@ ul {
   color: var(--color-charcoal);
   position: relative;
   padding-bottom: 4px;
+  text-decoration: none;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  text-decoration: none;
 }
 
 .nav-menu a::after {
@@ -250,6 +256,18 @@ ul {
 .nav-menu a:hover::after,
 .nav-menu a:focus::after {
   transform: scaleX(1);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  text-decoration: none;
+}
+
+.logo:hover,
+.logo:focus {
+  text-decoration: none;
 }
 
 .nav-toggle {
