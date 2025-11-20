@@ -6,7 +6,6 @@ const modalTriggers = document.querySelectorAll("[data-modal-trigger]");
 // Form is now handled by Tally embed
 let modalOpenedOnce = false;
 let modalFocusHandler = null;
-
 function toggleNav() {
   const expanded = navToggle.getAttribute("aria-expanded") === "true";
   navToggle.setAttribute("aria-expanded", String(!expanded));

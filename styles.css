@@ -13,6 +13,8 @@
   --radius-card: 18px;
   --radius-pill: 999px;
   --max-width: 1180px;
+  --announcement-height: 48px;
+  --header-height: 110px;
 }
 
 * {
@@ -21,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--announcement-height) + var(--header-height));
 }
 
 body {
@@ -153,12 +156,29 @@ ul {
   transform: translateY(-2px);
 }
 
+.site-header {
+  position: absolute;
+  top: var(--announcement-height);
+  left: 0;
+  width: 100%;
+  z-index: 40;
+  padding: 0 32px;
+}
+
 .announcement-bar {
-  background-color: var(--color-teal);
+  min-height: var(--announcement-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 163, 156, 0.9);
   color: var(--color-cream);
-  padding: 10px 24px;
+  padding: 0 24px;
   text-align: center;
   font-size: 0.92rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 30;
 }
 
 .announcement-link {
@@ -169,18 +189,29 @@ ul {
 }
 
 .main-nav {
-  background-color: var(--color-cream);
-  border-bottom: 1px solid rgba(52, 73, 94, 0.08);
+  background-color: transparent;
+  border-bottom: none;
+  padding: 20px 0 16px;
 }
 
 .nav-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 0 32px;
+}
+
+.nav-pill {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  box-shadow: 0 20px 45px rgba(15, 61, 57, 0.15);
+  backdrop-filter: blur(12px);
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .logo {
@@ -194,6 +225,7 @@ ul {
   align-items: center;
   gap: 32px;
   font-weight: 500;
+  margin-left: auto;
 }
 
 .nav-menu a {
@@ -250,7 +282,10 @@ ul {
 }
 
 .hero {
-  padding: 120px 24px 96px;
+  padding: calc(var(--header-height) + 32px) 24px 96px;
+  min-height: calc(100vh - var(--announcement-height));
+  display: flex;
+  align-items: center;
   background-image: linear-gradient(110deg, rgba(250, 250, 248, 0.75) 0%, rgba(250, 250, 248, 0.55) 45%, rgba(250, 250, 248, 0.2) 100%), url("assets/waggos.png");
   background-size: cover;
   background-position: center right;
@@ -260,6 +295,7 @@ ul {
 .hero-content {
   max-width: var(--max-width);
   margin: 0 auto;
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 72px;
@@ -678,14 +714,9 @@ ul {
   padding-top: 32px;
 }
 
-.footer-links,
 .footer-social {
   display: flex;
   gap: 20px;
-}
-
-.footer-links a {
-  color: rgba(250, 250, 248, 0.75);
 }
 
 .footer-social a {
@@ -885,11 +916,22 @@ ul {
     display: flex;
   }
 
+  .nav-pill {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+  }
+
   .nav-menu {
     position: absolute;
-    top: 100%;
-    right: 24px;
-    left: 24px;
+    top: calc(100% + 12px);
+    right: 0;
+    left: 0;
+    margin-left: 0;
     background-color: var(--color-cream);
     border-radius: 20px;
     flex-direction: column;
